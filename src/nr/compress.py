@@ -25,7 +25,7 @@ def compressVDO(sourceFolder, encodeQuality, dryrun=True):
         sourceFolder=sourceFolder, encodeQuality=encodeQuality
     )
     for idx, (sourceVideo, targetVideo) in enumerate(zip(sourceVideos, targetVideos)):
-        print(f"{idx + 1}: {sourceFolder} ===> {targetVideo}")
+        print(f"{idx + 1}: {sourceFolder} ===>{targetVideo}")
 
     if dryrun:
         return
