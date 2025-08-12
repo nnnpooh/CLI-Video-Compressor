@@ -40,17 +40,25 @@ def compressVDO(sourceFolder, encodeQuality, dryrun=True):
                     targetVideo,
                     "-q",
                     f"{encodeQuality}",
+                    "--codec",
+                    "h264",
                 ],
                 shell=True,
             )
             subprocess.run(
                 [
                     "exiftool",
-                    "-ee",
                     "-tagsFromFile",
                     sourceVideo,
-                    "-All:All",
-                    targetVideo,
+                    "-FileModifyDate",
+                    "-FileAccessDate",
+                    "-FileCreateDate",
+                    "-MediaCreateDate",
+                    "-MediaModifyDate",
+                    "-CreateDate",
+                    "-ModifyDate",
+                    "-MetadataDate",
                     "-overwrite_original",
+                    targetVideo,
                 ]
             )
